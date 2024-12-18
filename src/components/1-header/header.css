@@ -1,0 +1,207 @@
+/* ===========================
+  table of contents
+  ==============================
+  1. Header Design
+  2. Button & icon
+  3- Modal == pop up
+  4- Responsive Design (media query)
+*/
+
+/* ========================
+    1. Header Design
+=========================== */
+header.flex {
+  justify-content: space-between;
+  padding: 0 2.4rem;
+  margin-top: 1.2rem;
+}
+
+header.flex nav {
+  background-color: var(--bgHeader);
+  padding: 0.77rem 1.6rem;
+  border-radius: 55px;
+  box-shadow: 1px 1px 40px #2323242a;
+}
+
+header ul.flex {
+  gap: 16px;
+}
+
+/* Link buttons for header with hover effects */
+header ul li button.link-button {
+  color: var(--title);
+  opacity: 0.9;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+/* Hover effect for the background expansion */
+header ul li button.link-button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--blue);
+  z-index: -1;
+  transition: width 0.4s ease-in-out;
+}
+
+header ul li button.link-button:hover::before {
+  width: 100%;
+}
+
+/* Text and scale effect on hover */
+header ul li button.link-button:hover {
+  color: white; 
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Bottom border effect on hover */
+header ul li button.link-button:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--blue);
+  transition: width 0.4s ease-in-out;
+}
+
+header ul li button.link-button::after {
+  width: 0;
+}
+
+/* Hover animations for modal links */
+header .fixed ul.modal li button.link-button:hover {
+  color: white; 
+  background-color: var(--blue); 
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.5rem; 
+  padding: 0.5rem 1rem; 
+}
+
+header button {
+  font-size: 1.2rem;
+}
+
+header button.menu {
+  display: none;
+}
+
+/* ========================
+    2. Button & icon
+=========================== */
+header .icon-menu,
+header button.mode {
+  background-color: var(--bgHeader);
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+
+  justify-content: center;
+  text-align: center;
+
+  color: var(--subtitle);
+  border: 1px solid rgba(244, 165, 96, 0.249);
+  transition: 0.2s;
+  box-shadow: 1px 1px 40px rgba(35 ,35 ,36, 0.165);
+}
+
+header .icon-sun {
+  color: rgb(255, 165, 0);
+}
+
+header .icon-menu:hover,
+header button.mode:hover {
+  color: var(--title);
+  border: 1px solid rgb(244, 165, 96);
+}
+
+header .icon-close {
+  font-size: 1.5rem;
+  color: var(--subtitle);
+  transition: 0.3s;
+}
+
+header .icon-close:hover {
+  font-size: 1.7rem;
+  color: crimson;
+  rotate: 180deg;
+}
+
+/* ========================
+    3- Modal == pop up
+=========================== */
+header .fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  background-color: rgba(40, 40, 48, 0.91);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes mymove {
+  0% {
+    scale: 0;
+  }
+  60% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+header .fixed ul.modal {
+  animation: mymove 0.77s 1;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background-color: var(--secondary);
+}
+
+header .fixed ul.modal li {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.77rem;
+  padding-top: 0.5rem;
+}
+
+header .fixed ul.modal li:first-child {
+  text-align: right;
+  border: none;
+  padding-bottom: 0;
+  padding-top: 0.2rem;
+  margin-bottom: -1rem;
+}
+
+header .fixed ul.modal li:last-child {
+  border: none;
+}
+
+/* ========================
+    4- Responsive Design
+=========================== */
+@media (max-width: 700px) {
+  header.flex nav {
+    display: none;
+  }
+
+  header button.menu {
+    display: block;
+  }
+}

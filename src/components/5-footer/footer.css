@@ -1,0 +1,70 @@
+footer.flex {
+  justify-content: space-between;
+  padding-bottom: 1.9rem;
+}
+
+footer.flex ul {
+  gap: 1rem;
+  display: flex; 
+}
+
+footer.flex ul li {
+  list-style: none; 
+}
+
+footer.flex ul button {
+  color: var(--subtitle);
+  font-size: 0.9rem;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 0.5rem;
+}
+
+/* Hover effect for the buttons */
+footer.flex ul button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--blue);
+  z-index: -1;
+  transition: width 0.4s ease-in-out;
+}
+
+footer.flex ul button:hover::before {
+  width: 100%;
+}
+
+footer.flex ul button:hover {
+  color: white;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+footer.flex ul button:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--blue);
+  transition: width 0.4s ease-in-out;
+}
+
+footer.flex ul button::after {
+  width: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+  footer.flex {
+    display: none; 
+  }
+}
