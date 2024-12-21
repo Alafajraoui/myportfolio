@@ -30,7 +30,7 @@ export const MyProjects = [
     },
     {
       title: "Restaurant UI UX design",
-      descripton: "",
+      descripton: "A modern and responsive Restaurant website built with react and designed with combination oof tailwindcss and framermotion librery . that platform make the connection between the client , the chef and the deliveryboy where the process of ordering food or making food is more joyable and fun ",
       category: "React & React Native",
       image: "../../../restaurant.jpg",
       videoLink:"restaurant.mp4"
